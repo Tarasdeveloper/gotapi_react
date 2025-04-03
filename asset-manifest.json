@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/gotapi_react/static/css/main.729df932.css",
+    "main.js": "/gotapi_react/static/js/main.67b50be6.js",
+    "static/media/got.jpeg": "/gotapi_react/static/media/got.7783d0b428949a09e45f.jpeg",
+    "index.html": "/gotapi_react/index.html",
+    "main.729df932.css.map": "/gotapi_react/static/css/main.729df932.css.map",
+    "main.67b50be6.js.map": "/gotapi_react/static/js/main.67b50be6.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.729df932.css",
+    "static/js/main.67b50be6.js"
+  ]
+}
