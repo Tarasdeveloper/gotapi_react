@@ -35,7 +35,7 @@ export default class RandomChar extends Component {
 
     updateChar = () => {
         // const id = 1000000000;
-        const id = Math.floor(Math.random() * 140 + 20);
+        const id = Math.floor(Math.random() * 140 + 25);
         this.gotService
             .getCharacter(id)
             .then(this.onCharLoaded)
@@ -68,19 +68,19 @@ const View = ({ char }) => {
             <ul className="list-group list-group-flush">
                 <li className="list-group-item d-flex justify-content-between">
                     <span className="term">Gender </span>
-                    <span>{gender || 'Unknoun'}</span>
+                    <span>{gender}</span>
                 </li>
                 <li className="list-group-item d-flex justify-content-between">
                     <span className="term">Born </span>
-                    <span>{born || 'Unknoun'}</span>
+                    <span>{born}</span>
                 </li>
                 <li className="list-group-item d-flex justify-content-between">
                     <span className="term">Died </span>
-                    <span>{died || 'Unknoun'}</span>
+                    <span>{died}</span>
                 </li>
                 <li className="list-group-item d-flex justify-content-between">
                     <span className="term">Culture </span>
-                    <span>{culture || 'Unknoun'}</span>
+                    <span>{culture}</span>
                 </li>
             </ul>
         </>

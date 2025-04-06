@@ -5,8 +5,10 @@
     "homepage": "https://tarasdeveloper.github.io/gotapi_react/",
     "dependencies": {
         "bootstrap": "^5.3.3",
-        "react": "^16.13.0",
-        "react-dom": "^16.13.0",
+        "nanoid": "^5.1.5",
+        "react": "^18.3.0",
+        "react-dom": "^18.3.0",
+        "react-router-dom": "^7.4.1",
         "react-scripts": "^5.0.1",
         "reactstrap": "^7.1.0",
         "styled-components": "^4.4.1"
