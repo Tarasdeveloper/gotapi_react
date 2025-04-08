@@ -9,4 +9,5 @@
 }
 .term {
     font-weight: bold;
+    min-width: 115px;
 }

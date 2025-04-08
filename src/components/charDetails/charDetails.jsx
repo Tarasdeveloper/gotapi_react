@@ -3,10 +3,20 @@ import './charDetails.css';
 import GotService from '../../service/gotService';
 
 export const Field = ({ item, field, label }) => {
+    const value = item[field];
+
+    const renderValue = () => {
+        if (Array.isArray(value)) {
+            if (value.length === 0) return 'Unknown';
+            return value.join(', ');
+        }
+        return value || 'Unknown';
+    };
+
     return (
         <li className="list-group-item d-flex justify-content-between">
-            <span className="term">{label} </span>
-            <span>{item[field]}</span>
+            <span className="term">{label}</span>
+            <span>{renderValue()}</span>
         </li>
     );
 };
@@ -40,7 +50,9 @@ export default class ItemDetails extends Component {
 
     render() {
         if (!this.state.item) {
-            return <p className="select-error">Please select a character</p>;
+            return (
+                <p className="select-error">Please select item in the list</p>
+            );
         }
         const { item } = this.state;
         const { name } = item;

@@ -22,11 +22,12 @@ export default class GotService {
     };
 
     getAllBooks = async () => {
-        const res = await this.getResource('/books');
-        return res.map(this._transformBook);
+        const book = await this.getResource('/books');
+        return book.map(this._transformBook);
     };
     getBook = async (id) => {
-        return this.getResource(`/books/${id}`);
+        const book = await this.getResource(`/books/${id}`);
+        return this._transformBook(book);
     };
 
     getAllHouses = async () => {
@@ -34,7 +35,8 @@ export default class GotService {
         return res.map(this._transformHouse);
     };
     getHouse = async (id) => {
-        return this.getResource(`/houses/${id}`);
+        const house = await this.getResource(`/houses/${id}`);
+        return this._transformHouse(house);
     };
 
     _transformCharacter(char) {
@@ -55,9 +57,8 @@ export default class GotService {
             id,
             name: house.name || 'Unknoun',
             region: house.region || 'Unknoun',
-            words: house.words || 'Unknoun',
-            overlord: house.overlord || 'Unknoun',
-            ancestralWeapons: house.ancestralWeapons || 'Unknoun',
+            titles: house.titles || 'Unknoun',
+            coatOfArms: house.coatOfArms || 'Unknoun',
         };
     }
 

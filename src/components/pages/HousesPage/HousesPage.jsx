@@ -9,7 +9,7 @@ export default class HousesPage extends Component {
     gotService = new GotService();
 
     state = {
-        selectedHouse: 1,
+        selectedHouse: null,
         error: false,
     };
 
@@ -25,12 +25,14 @@ export default class HousesPage extends Component {
         });
     }
 
+    mapping;
+
     render() {
         if (this.state.error) {
             return <ErrorMessage />;
         }
 
-        const housesList = (
+        const itemList = (
             <ItemList
                 onItemSelected={this.onItemSelected}
                 getData={this.gotService.getAllHouses}
@@ -38,19 +40,18 @@ export default class HousesPage extends Component {
             />
         );
 
-        const houseDetails = (
+        const itemDetails = (
             <ItemDetails
                 itemId={this.state.selectedHouse}
                 getData={this.gotService.getHouse}
             >
                 <Field field="name" label="Name" />
                 <Field field="region" label="Region" />
-                <Field field="words" label="Words" />
-                <Field field="overlord" label="Overlord" />
-                <Field field="ancestralWeapons" label="Ancestral Weapons" />
+                <Field field="titles" label="Titles" />
+                <Field field="coatOfArms" label="Coat оf Arms" />
             </ItemDetails>
         );
 
-        return <RowBlock left={housesList} right={houseDetails} />;
+        return <RowBlock left={itemList} right={itemDetails} />;
     }
 }
