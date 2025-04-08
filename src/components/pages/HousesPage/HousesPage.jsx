@@ -9,7 +9,7 @@ export default class HousesPage extends Component {
     gotService = new GotService();
 
     state = {
-        selectedHouse: 5,
+        selectedHouse: 1,
         error: false,
     };
 
@@ -39,12 +39,15 @@ export default class HousesPage extends Component {
         );
 
         const houseDetails = (
-            <ItemDetails itemId={this.state.selectedBook}>
+            <ItemDetails
+                itemId={this.state.selectedHouse}
+                getData={this.gotService.getHouse}
+            >
                 <Field field="name" label="Name" />
                 <Field field="region" label="Region" />
                 <Field field="words" label="Words" />
                 <Field field="overlord" label="Overlord" />
-                <Field field="ancestralWeapons" label="AncestralWeapons" />
+                <Field field="ancestralWeapons" label="Ancestral Weapons" />
             </ItemDetails>
         );
 

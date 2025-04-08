@@ -9,6 +9,7 @@ import GotService from '../../service/gotService';
 import BooksPage from '../pages/BooksPage/BooksPage';
 import HousesPage from '../pages/HousesPage/HousesPage';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import BooksItem from '../pages/BooksPage/BooksItem';
 
 export default class App extends Component {
     gotService = new GotService();
@@ -60,12 +61,14 @@ export default class App extends Component {
                         </Row>
 
                         <Routes>
+                            <Route path="/" element={<h1>Welcome to GOT</h1>} />
                             <Route
                                 path="/characters"
                                 element={<CharacterPage />}
                             />
-                            <Route path="/books" element={<BooksPage />} />
                             <Route path="/houses" element={<HousesPage />} />
+                            <Route path="/books" element={<BooksPage />} />
+                            <Route path="/books/:id" element={<BooksItem />} />
                         </Routes>
                     </Container>
                 </div>

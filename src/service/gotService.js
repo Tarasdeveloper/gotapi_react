@@ -22,14 +22,16 @@ export default class GotService {
     };
 
     getAllBooks = async () => {
-        return this.getResource('/books');
+        const res = await this.getResource('/books');
+        return res.map(this._transformBook);
     };
     getBook = async (id) => {
         return this.getResource(`/books/${id}`);
     };
 
     getAllHouses = async () => {
-        return this.getResource('/houses?page=5&pageSize=10');
+        const res = await this.getResource('/houses?page=5&pageSize=10');
+        return res.map(this._transformHouse);
     };
     getHouse = async (id) => {
         return this.getResource(`/houses/${id}`);
@@ -48,7 +50,9 @@ export default class GotService {
     }
 
     _transformHouse(house) {
+        const id = house.url.match(/\/([0-9]+)$/)[1];
         return {
+            id,
             name: house.name || 'Unknoun',
             region: house.region || 'Unknoun',
             words: house.words || 'Unknoun',
