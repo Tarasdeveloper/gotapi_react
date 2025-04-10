@@ -30,7 +30,7 @@ class BooksPage extends Component {
                 onItemSelected={(itemId) => {
                     this.props.navigate(`/books/${itemId}`);
                 }}
-                getData={this.gotService.getAllBooks}
+                // getData={this.gotService.getAllBooks}
                 renderItem={({ name }) => name}
             />
         );

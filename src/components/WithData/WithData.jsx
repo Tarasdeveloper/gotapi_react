@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { Spinner } from 'reactstrap';
+import Spinner from '../spinner/spinner';
 
 const WithData = (View, getData) => {
     return class extends Component {
@@ -16,12 +16,12 @@ const WithData = (View, getData) => {
         }
         render() {
             const { data } = this.state;
-            if (!data) return <Spinner />;
+            if (!data || data.length === 0) return <Spinner />;
 
             return <View {...this.props} data={data} />;
         }
     };
 };
+export default WithData;
 // const { getAllCharacters } = new GotService();
 // export default WithData(ItemList, getAllCharacters);
-export default WithData;
