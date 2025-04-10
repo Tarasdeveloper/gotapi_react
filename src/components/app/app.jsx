@@ -8,7 +8,7 @@ import CharacterPage from '../pages/CharacterPage/CharacterPage';
 import GotService from '../../service/gotService';
 import BooksPage from '../pages/BooksPage/BooksPage';
 import HousesPage from '../pages/HousesPage/HousesPage';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import BooksItem from '../pages/BooksPage/BooksItem';
 
 export default class App extends Component {
@@ -43,47 +43,36 @@ export default class App extends Component {
         }
 
         return (
-            <BrowserRouter>
-                <div className="app">
+            <div className="app">
+                <Container>
+                    <Header />
+                </Container>
+                <main className="main">
                     <Container>
-                        <Header />
-                    </Container>
-                    <main className="main">
-                        <Container>
-                            <Row>
-                                <Col lg={{ size: 5, offset: 0 }}>
-                                    {/* {showRandomChar && <RandomChar />} */}
-                                    {char}
-                                    <Button
-                                        onClick={this.toggleRandomChar}
-                                        title={'Toggle random character'}
-                                    />
-                                </Col>
-                            </Row>
+                        <Row>
+                            <Col lg={{ size: 5, offset: 0 }}>
+                                {/* {showRandomChar && <RandomChar />} */}
+                                {char}
+                                <Button
+                                    onClick={this.toggleRandomChar}
+                                    title={'Toggle random character'}
+                                />
+                            </Col>
+                        </Row>
 
-                            <Routes>
-                                <Route
-                                    path="/"
-                                    element={<h1>Welcome to GOT</h1>}
-                                />
-                                <Route
-                                    path="/characters"
-                                    element={<CharacterPage />}
-                                />
-                                <Route
-                                    path="/houses"
-                                    element={<HousesPage />}
-                                />
-                                <Route path="/books" element={<BooksPage />} />
-                                <Route
-                                    path="/books/:id"
-                                    element={<BooksItem />}
-                                />
-                            </Routes>
-                        </Container>
-                    </main>
-                </div>
-            </BrowserRouter>
+                        <Routes>
+                            <Route path="/" element={<h1>Welcome to GOT</h1>} />
+                            <Route
+                                path="/characters"
+                                element={<CharacterPage />}
+                            />
+                            <Route path="/houses" element={<HousesPage />} />
+                            <Route path="/books" element={<BooksPage />} />
+                            <Route path="/books/:id" element={<BooksItem />} />
+                        </Routes>
+                    </Container>
+                </main>
+            </div>
         );
     }
 }
