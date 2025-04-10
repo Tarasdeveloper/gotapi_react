@@ -5,6 +5,7 @@ import ItemDetails, { Field } from '../../charDetails';
 import ErrorMessage from '../../errorMessage/errorMessage';
 import GotService from '../../../service/gotService';
 import RowBlock from '../../RowBlock/RowBlock';
+import WithData from '../../WithData/WithData';
 
 export default class CharacterPage extends Component {
     gotService = new GotService();
@@ -31,8 +32,13 @@ export default class CharacterPage extends Component {
             return <ErrorMessage />;
         }
 
+        const CharacterList = WithData(
+            ItemList,
+            this.gotService.getAllCharacters
+        );
+
         const itemList = (
-            <ItemList
+            <CharacterList
                 onItemSelected={this.onItemSelected}
                 getData={this.gotService.getAllCharacters}
                 renderItem={({ name, gender }) => `${name} (${gender})`}

@@ -48,29 +48,40 @@ export default class App extends Component {
                     <Container>
                         <Header />
                     </Container>
-                    <Container>
-                        <Row>
-                            <Col lg={{ size: 5, offset: 0 }}>
-                                {/* {showRandomChar && <RandomChar />} */}
-                                {char}
-                                <Button
-                                    onClick={this.toggleRandomChar}
-                                    title={'Toggle random character'}
-                                />
-                            </Col>
-                        </Row>
+                    <main className="main">
+                        <Container>
+                            <Row>
+                                <Col lg={{ size: 5, offset: 0 }}>
+                                    {/* {showRandomChar && <RandomChar />} */}
+                                    {char}
+                                    <Button
+                                        onClick={this.toggleRandomChar}
+                                        title={'Toggle random character'}
+                                    />
+                                </Col>
+                            </Row>
 
-                        <Routes>
-                            <Route path="/" element={<h1>Welcome to GOT</h1>} />
-                            <Route
-                                path="/characters"
-                                element={<CharacterPage />}
-                            />
-                            <Route path="/houses" element={<HousesPage />} />
-                            <Route path="/books" element={<BooksPage />} />
-                            <Route path="/books/:id" element={<BooksItem />} />
-                        </Routes>
-                    </Container>
+                            <Routes>
+                                <Route
+                                    path="/"
+                                    element={<h1>Welcome to GOT</h1>}
+                                />
+                                <Route
+                                    path="/characters"
+                                    element={<CharacterPage />}
+                                />
+                                <Route
+                                    path="/houses"
+                                    element={<HousesPage />}
+                                />
+                                <Route path="/books" element={<BooksPage />} />
+                                <Route
+                                    path="/books/:id"
+                                    element={<BooksItem />}
+                                />
+                            </Routes>
+                        </Container>
+                    </main>
                 </div>
             </BrowserRouter>
         );

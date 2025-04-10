@@ -3,6 +3,7 @@ import GotService from '../../../service/gotService';
 import ErrorMessage from '../../errorMessage/errorMessage';
 import ItemList from '../../itemList';
 import { withRouter } from '../../withRouter/withRouter';
+import WithData from '../../WithData/WithData';
 
 class BooksPage extends Component {
     gotService = new GotService();
@@ -22,8 +23,10 @@ class BooksPage extends Component {
             return <ErrorMessage />;
         }
 
+        const BookList = WithData(ItemList, this.gotService.getAllBooks);
+
         return (
-            <ItemList
+            <BookList
                 onItemSelected={(itemId) => {
                     this.props.navigate(`/books/${itemId}`);
                 }}

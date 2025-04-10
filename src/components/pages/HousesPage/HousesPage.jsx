@@ -4,6 +4,7 @@ import ErrorMessage from '../../errorMessage/errorMessage';
 import ItemList from '../../itemList';
 import ItemDetails, { Field } from '../../charDetails/charDetails';
 import RowBlock from '../../RowBlock/RowBlock';
+import WithData from '../../WithData/WithData';
 
 export default class HousesPage extends Component {
     gotService = new GotService();
@@ -25,15 +26,15 @@ export default class HousesPage extends Component {
         });
     }
 
-    mapping;
-
     render() {
         if (this.state.error) {
             return <ErrorMessage />;
         }
 
+        const HouseList = WithData(ItemList, this.gotService.getAllHouses);
+
         const itemList = (
-            <ItemList
+            <HouseList
                 onItemSelected={this.onItemSelected}
                 getData={this.gotService.getAllHouses}
                 renderItem={({ name }) => name}
