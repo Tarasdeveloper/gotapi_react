@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/gotapi_react/static/css/main.a581ca0b.css",
-    "main.js": "/gotapi_react/static/js/main.d23509b8.js",
+    "main.js": "/gotapi_react/static/js/main.5b053a8b.js",
     "static/media/got.jpeg": "/gotapi_react/static/media/got.7783d0b428949a09e45f.jpeg",
     "index.html": "/gotapi_react/index.html",
     "main.a581ca0b.css.map": "/gotapi_react/static/css/main.a581ca0b.css.map",
-    "main.d23509b8.js.map": "/gotapi_react/static/js/main.d23509b8.js.map"
+    "main.5b053a8b.js.map": "/gotapi_react/static/js/main.5b053a8b.js.map"
   },
   "entrypoints": [
     "static/css/main.a581ca0b.css",
-    "static/js/main.d23509b8.js"
+    "static/js/main.5b053a8b.js"
   ]
 }
