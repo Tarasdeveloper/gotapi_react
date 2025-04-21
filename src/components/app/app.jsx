@@ -8,8 +8,11 @@ import CharacterPage from '../pages/CharacterPage/CharacterPage';
 import GotService from '../../service/gotService';
 import BooksPage from '../pages/BooksPage/BooksPage';
 import HousesPage from '../pages/HousesPage/HousesPage';
-import { Route, Routes } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import BooksItem from '../pages/BooksPage/BooksItem';
+import { Switch } from 'react-router-dom';
+
+const Welcome = () => <h1>Welcome to GOT</h1>;
 
 export default class App extends Component {
     gotService = new GotService();
@@ -51,7 +54,6 @@ export default class App extends Component {
                     <Container>
                         <Row>
                             <Col lg={{ size: 5, offset: 0 }}>
-                                {/* {showRandomChar && <RandomChar />} */}
                                 {char}
                                 <Button
                                     onClick={this.toggleRandomChar}
@@ -60,16 +62,17 @@ export default class App extends Component {
                             </Col>
                         </Row>
 
-                        <Routes>
-                            <Route path="/" element={<h1>Welcome to GOT</h1>} />
+                        <Switch>
+                            <Route path="/" exact component={Welcome} />
+
                             <Route
                                 path="/characters"
-                                element={<CharacterPage />}
+                                component={CharacterPage}
                             />
-                            <Route path="/houses" element={<HousesPage />} />
-                            <Route path="/books" element={<BooksPage />} />
-                            <Route path="/books/:id" element={<BooksItem />} />
-                        </Routes>
+                            <Route path="/houses" component={HousesPage} />
+                            <Route path="/books/:id" component={BooksItem} />
+                            <Route path="/books" exact component={BooksPage} />
+                        </Switch>
                     </Container>
                 </main>
             </div>

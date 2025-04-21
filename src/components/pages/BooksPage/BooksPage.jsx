@@ -1,3 +1,4 @@
+import React from 'react';
 import { Component } from 'react';
 import GotService from '../../../service/gotService';
 import ErrorMessage from '../../errorMessage/errorMessage';
@@ -28,7 +29,7 @@ class BooksPage extends Component {
         return (
             <BookList
                 onItemSelected={(itemId) => {
-                    this.props.navigate(`/books/${itemId}`);
+                    this.props.history.push(`/books/${itemId}`);
                 }}
                 // getData={this.gotService.getAllBooks}
                 renderItem={({ name }) => name}
